@@ -15,6 +15,9 @@ type Auth = {
   signInWithGoogle: () => Promise<void>;
 };
 
+export const useToken = (): globalThis.Ref<string | null> =>
+  useState<string | null>('token', () => null);
+
 export const useAuth = (): Auth => {
   const token = useToken();
 
